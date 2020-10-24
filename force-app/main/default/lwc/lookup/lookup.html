@@ -1,0 +1,103 @@
+<template>
+  <div
+    class="slds-grid slds-grid_vertical"
+    style="width: 100%; min-width: 500px"
+  >
+    <div class="slds-col">
+      <label class="slds-form-element__label" for="text-input-id-1">
+        <template if:true={required}>
+          <abbr class="slds-required" title="required">* </abbr>
+        </template>
+        {label}
+      </label>
+      <div class="slds-form-element__control">
+        <div
+          class="slds-grid input-wrapper slds-box--border"
+          style="height: 100%; height: 32px"
+        >
+          <template if:false={selectedResult}>
+            <input
+              type="text"
+              style="width: 100%"
+              placeholder={placeholder}
+              required={required}
+              value={searchInput}
+              onkeyup={onKeyUp}
+              onclick={onClickInput}
+              onblur={onBlurInput}
+            />
+            <template if:true={isFetchingRecords}>
+              <div
+                role="status"
+                class="slds-spinner slds-spinner_x-small slds-spinner_brand"
+                style="
+                  margin: auto;
+                  position: unset;
+                  padding-right: var(--lwc-spacingXSmall, 0.5rem);
+                "
+              >
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </template>
+            <lightning-icon
+              class="search-icon"
+              icon-name="utility:search"
+              size="x-small"
+              style="
+                margin: auto auto;
+                padding-right: var(--lwc-spacingXSmall, 0.5rem);
+              "
+            >
+            </lightning-icon>
+          </template>
+          <template if:true={selectedResult}>
+            <div
+              class="slds-grid slds-p-horizontal_x-small slds-p-vertical_xx-small search-result"
+              style="width: 100%"
+            >
+              <div class="slds-col">
+                <template if:true={showIcon}>
+                  <lightning-icon icon-name={iconName} size="small">
+                  </lightning-icon>
+                </template>
+              </div>
+              <div
+                class="slds-col slds-p-left_x-small"
+                style="margin: auto 0; width: 100%"
+              >
+                {selectedResult.Name}
+              </div>
+              <div class="slds-col">
+                <lightning-button-icon
+                  icon-name="utility:close"
+                  alternative-text="clear"
+                  size="small"
+                  variant="bare"
+                  title="Clear Selection"
+                  onclick={onClickClearSelection}
+                >
+                </lightning-button-icon>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col">
+      <div class={displayResultsClass}>
+        <c-lookup-results
+          search-results={searchResults}
+          icon-name={iconName}
+          show-icon={showIcon}
+          highlight-search-result={highlightSearchResult}
+          search-input={searchInput}
+          show-recently-viewed-records={showRecentlyViewedRecords}
+          onselect={onSelectResult}
+        >
+        </c-lookup-results>
+      </div>
+    </div>
+  </div>
+</template>

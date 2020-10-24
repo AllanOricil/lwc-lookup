@@ -1,0 +1,23 @@
+<template>
+  <div class="slds-scrollable_y" style="height: 10rem; position: relative">
+    <div class="slds-dropdown slds-dropdown_fluid slds-dropdown_left">
+      <template if:true={showRecentlyViewedRecords}>
+        <div class="slds-p-horizontal_small slds-p-vertical_xx-small">
+          Recently Viewed
+        </div>
+      </template>
+      <template for:each={searchResults} for:item="searchResult">
+        <c-lookup-result
+          key={searchResult.Id}
+          icon-name={iconName}
+          show-icon={showIcon}
+          highlight-search-result={highlightSearchResult}
+          search-input={searchInput}
+          search-result={searchResult}
+          onselect={onSelectResult}
+        >
+        </c-lookup-result>
+      </template>
+    </div>
+  </div>
+</template>

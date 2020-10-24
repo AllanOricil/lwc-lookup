@@ -1,0 +1,19 @@
+.input-wrapper {
+  background-color: white;
+}
+
+.input-wrapper.focused {
+  border: solid var(--lwc-borderWidthThin, 1px)
+    var(--lwc-colorBorderInputActive, rgb(21, 137, 238));
+  border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+  box-shadow: var(--lwc-shadowButtonFocus, 0 0 3px #0070d2);
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  line-height: var(--lwc-lineHeightButton, 1.875rem);
+  padding: 0 var(--lwc-spacingMedium, 1rem) 0 var(--lwc-spacingSmall, 0.75rem);
+}

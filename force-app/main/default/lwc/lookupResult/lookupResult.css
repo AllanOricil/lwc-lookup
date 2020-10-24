@@ -1,0 +1,4 @@
+.search-result:hover {
+  cursor: pointer;
+  background-color: var(--lwc-colorBackgroundRowHover, rgb(243, 242, 242));
+}

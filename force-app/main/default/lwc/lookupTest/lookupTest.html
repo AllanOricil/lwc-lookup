@@ -1,0 +1,80 @@
+<template>
+  <div style="width: 600px">
+    <p>Hidden Icon</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+    ></c-lookup>
+    </br>
+    <p>Visible Icon</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+      show-icon
+    ></c-lookup>
+    </br>
+    <p>Required</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+      show-icon
+      required
+    ></c-lookup>
+    </br>
+    <p>Hightlight Search Result</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+      show-icon
+      highlight-search-result
+    ></c-lookup>
+    </br>
+    <p>Show Recently Viewed Records</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+      show-icon
+      highlight-search-result
+      show-recently-viewed-records
+    ></c-lookup>
+    </br>
+    <p>Max number of results displayed</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="5"
+      icon-name="standard:account"
+      show-icon
+      highlight-search-result
+      show-recently-viewed-records
+    ></c-lookup>
+    </br>
+    <p>Change Object</p>
+    <c-lookup
+      label="Opportunity Name"
+      placeholder="Search Opportunity"
+      sobject-name="Opportunity"
+      max-number-of-results="5"
+      icon-name="standard:opportunity"
+      show-icon
+      highlight-search-result
+      show-recently-viewed-records
+    ></c-lookup>
+  </div>
+</template>

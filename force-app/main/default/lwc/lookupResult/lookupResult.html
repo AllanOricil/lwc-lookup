@@ -1,0 +1,27 @@
+<template>
+  <div
+    class="slds-grid slds-p-horizontal_small slds-p-vertical_xx-small search-result"
+    onclick={onSelectResult}
+  >
+    <template if:true={showIcon}>
+      <div class="slds-col">
+        <lightning-icon
+          class="search-icon"
+          icon-name={iconName}
+          size="small"
+        >
+        </lightning-icon>
+      </div>
+    </template>
+    <div class="slds-col slds-p-left_x-small" style="margin: auto 0">
+      <template if:true={highlightSearchResult}>
+        <lightning-formatted-rich-text
+          value={searchResultData.highlightedName}
+        ></lightning-formatted-rich-text>
+      </template>
+      <template if:false={highlightSearchResult}>
+        {searchResultData.Name}
+      </template>
+    </div>
+  </div>
+</template>
