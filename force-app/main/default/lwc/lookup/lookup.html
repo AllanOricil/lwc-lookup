@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="slds-grid slds-grid_vertical"
-    style="width: 100%; min-width: 500px"
-  >
-    <div class="slds-col">
-      <label class="slds-form-element__label" for="text-input-id-1">
+  <div style="width: 100%; position: relative;">
+    <div class={formElementClass}>
+      <label class="slds-form-element__label">
         <template if:true={required}>
           <abbr class="slds-required" title="required">* </abbr>
         </template>
@@ -54,18 +51,17 @@
           </template>
           <template if:true={selectedResult}>
             <div
-              class="slds-grid slds-p-horizontal_x-small slds-p-vertical_xx-small search-result"
+              class="slds-grid slds-p-vertical_xx-small search-result"
               style="width: 100%"
             >
               <div class="slds-col">
                 <template if:true={showIcon}>
-                  <lightning-icon icon-name={iconName} size="small">
-                  </lightning-icon>
+                  <lightning-icon icon-name={iconName} class="slds-combobox__input-entity-icon"></lightning-icon>
                 </template>
               </div>
               <div
-                class="slds-col slds-p-left_x-small"
-                style="margin: auto 0; width: 100%"
+                class="slds-col"
+                style="margin: auto 0; width: 100%; padding-left: 2.25rem;"
               >
                 {selectedResult.Name}
               </div>
@@ -76,6 +72,7 @@
                   size="small"
                   variant="bare"
                   title="Clear Selection"
+                  class="slds-p-right_x-small"
                   onclick={onClickClearSelection}
                 >
                 </lightning-button-icon>
@@ -84,20 +81,20 @@
           </template>
         </div>
       </div>
-    </div>
-    <div class="slds-col">
-      <div class={displayResultsClass}>
-        <c-lookup-results
-          search-results={searchResults}
-          icon-name={iconName}
-          show-icon={showIcon}
-          highlight-search-result={highlightSearchResult}
-          search-input={searchInput}
-          show-recently-viewed-records={showRecentlyViewedRecords}
-          onselect={onSelectResult}
-        >
-        </c-lookup-results>
-      </div>
+      <c-lookup-results
+        class={displayResultsClass}
+        search-results={searchResults}
+        icon-name={iconName}
+        show-icon={showIcon}
+        highlight-search-result={highlightSearchResult}
+        search-input={searchInput}
+        show-recently-viewed-records={showRecentlyViewedRecords}
+        onselect={onSelectResult}
+      >
+      </c-lookup-results>
+      <template if:true={error}>
+        <div class="slds-form-element__help">{error}</div>
+      </template>
     </div>
   </div>
 </template>

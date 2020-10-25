@@ -9,6 +9,14 @@
   box-shadow: var(--lwc-shadowButtonFocus, 0 0 3px #0070d2);
 }
 
+
+.slds-has-error .input-wrapper{
+  background-color: var(--lwc-colorBackgroundInput,rgb(255, 255, 255));
+  border-color: var(--lwc-colorBorderError,rgb(194, 57, 52));
+  box-shadow: var(--lwc-colorBorderError,rgb(194, 57, 52)) 0 0 0 var(--lwc-borderWidthThin,1px) inset;
+  background-clip: padding-box;
+}
+
 input {
   border: none;
   background-color: transparent;

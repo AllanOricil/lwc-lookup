@@ -13,9 +13,7 @@ export default class Lookup extends LightningElement {
     @api showIcon = false;
     @api highlightSearchResult = false;
     @api showRecentlyViewedRecords = false;
-    @api error = {
-        message: 'This field is required'
-    }
+    @api error = null;
 
     searchInput = null;
     searchResults = [];
@@ -51,9 +49,10 @@ export default class Lookup extends LightningElement {
     }
 
     onClickInput(event){
+        const inputWrapper = event.target.parentElement;
+        inputWrapper.classList.add('focused');
+        
         if(this.showRecentlyViewedRecords && !this.searchInput){
-            const inputWrapper = event.target.parentElement;
-            inputWrapper.classList.add('focused');
             if(!this.isFetchingRecords){
                 this.isFetchingRecords = true;
                 fetchRecentlyViewed({
@@ -97,5 +96,9 @@ export default class Lookup extends LightningElement {
     get displayResultsClass(){
         if(this.selectedResult) this.displayResults = false;
         return this.displayResults ? '' : 'slds-hide';
+    }
+    
+    get formElementClass(){
+        return 'slds-form-element ' + (this.error ? 'slds-has-error' : '');
     }
 }

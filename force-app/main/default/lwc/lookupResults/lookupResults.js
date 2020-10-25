@@ -11,4 +11,9 @@ export default class LookupResults extends LightningElement {
   onSelectResult(event) {
     this.dispatchEvent(new CustomEvent("select", { detail: event.detail }));
   }
+
+  get computedHeight(){
+    if(this.searchResults.length < 3) return `height: ${this.searchResults.length * 32}px`;
+    else return `height: 96px`;
+  }
 }

@@ -1,14 +1,5 @@
 <template>
   <div style="width: 600px">
-    <p>Hidden Icon</p>
-    <c-lookup
-      label="Account Name"
-      placeholder="Search Account"
-      sobject-name="Account"
-      max-number-of-results="3"
-      icon-name="standard:account"
-    ></c-lookup>
-    </br>
     <p>Visible Icon</p>
     <c-lookup
       label="Account Name"
@@ -17,6 +8,15 @@
       max-number-of-results="3"
       icon-name="standard:account"
       show-icon
+    ></c-lookup>
+    </br>
+    <p>Hidden Icon</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
     ></c-lookup>
     </br>
     <p>Required</p>
@@ -75,6 +75,18 @@
       show-icon
       highlight-search-result
       show-recently-viewed-records
+    ></c-lookup>
+    </br>
+    <p>Error</p>
+    <c-lookup
+      label="Account Name"
+      placeholder="Search Account"
+      sobject-name="Account"
+      max-number-of-results="3"
+      icon-name="standard:account"
+      show-icon
+      required
+      error="Enter a Value."
     ></c-lookup>
   </div>
 </template>
